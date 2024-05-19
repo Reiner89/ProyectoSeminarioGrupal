@@ -1,7 +1,10 @@
 import { dataProyectos, headersProyectos } from "../../Data/Proyectos";
-import { IconoBuscar, IconoEditar, IconoEliminar } from "../../Icons/Iconos";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
+import {
+  AddInventario,
+  IconoBuscar,
+  IconoEditar,
+  IconoEliminar,
+} from "../../Icons/Iconos";
 import { Layout } from "../../Layout/Layout";
 
 export const Proyectos = () => {
@@ -13,19 +16,30 @@ export const Proyectos = () => {
           <div className="relative mb-8">
             <div className="relative overflow-x-auto sm:rounded-lg">
               <div className="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
-                <label htmlFor="table-search" className="sr-only">
-                  Search
-                </label>
+                <div className="relative inline-flex">
+                  <button
+                    className="flex select-none rounded-lg border border-blue-400 dark:border-blue-700 bg-blue-400 dark:bg-blue-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white transition-all hover:opacity-75 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    type="button"
+                  >
+                    <AddInventario />
+                    <h1 className="relative ml-2">Agregar</h1>
+                  </button>
+                </div>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
-                    <IconoBuscar className="relative text-gray-500 dark:text-gray-400" />
+                  <label htmlFor="table-search" className="sr-only">
+                    Search
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
+                      <IconoBuscar className="relative text-gray-500 dark:text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      id="table-search"
+                      className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-[rgb(26,32,53)] dark:border-gray-800 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none"
+                      placeholder="Buscar Proyectos"
+                    />
                   </div>
-                  <input
-                    type="text"
-                    id="table-search"
-                    className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-[rgb(26,32,53)] dark:border-gray-800 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none"
-                    placeholder="Buscar Proyectos"
-                  />
                 </div>
               </div>
               <div className="ScrollTableVertical w-full overflow-x-auto">
