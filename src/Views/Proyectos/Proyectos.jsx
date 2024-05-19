@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { dataProyectos, headersProyectos } from "../../Data/Proyectos";
 import {
   AddInventario,
@@ -6,8 +7,17 @@ import {
   IconoEliminar,
 } from "../../Icons/Iconos";
 import { Layout } from "../../Layout/Layout";
+import { Modal } from "./Modal";
 
 export const Proyectos = () => {
+  // Estado del modal
+  const [modal, setModal] = useState(false);
+
+  // Mostrar/Ocultar modal
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <Layout
       areaPagina={"Proyectos"}
@@ -18,6 +28,9 @@ export const Proyectos = () => {
               <div className="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                 <div className="relative inline-flex">
                   <button
+                    data-ripple-light="true"
+                    data-dialog-target="dialog"
+                    onClick={toggleModal}
                     className="flex select-none rounded-lg border border-blue-400 dark:border-blue-700 bg-blue-400 dark:bg-blue-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white transition-all hover:opacity-75 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="button"
                   >
@@ -116,6 +129,9 @@ export const Proyectos = () => {
               </div>
             </div>
           </div>
+
+          {/* Llamamos al modal */}
+          <Modal modal={modal} toggleModal={toggleModal} />
         </>
       }
     />
