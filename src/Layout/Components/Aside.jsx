@@ -4,7 +4,6 @@ import {
   IconoDashboard,
   RTL,
   SignUp,
-  Tablas,
   Usuario,
 } from "../../Icons/Iconos";
 import { Link } from "react-router-dom";
@@ -79,7 +78,7 @@ export const Aside = ({ asideShow }) => {
           <div className="cont-logo p-[24px_32px_8px]">
             <div className="logo flex items-center w-full justify-center">
               <h1 className="relative font-bold text-[30px] leading-7 tracking-[1px]">
-                CONSTRURED
+                ConstruRed
               </h1>
             </div>
           </div>
